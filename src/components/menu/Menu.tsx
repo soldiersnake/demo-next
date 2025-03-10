@@ -1,15 +1,22 @@
+import { LinkType } from "@/types/link.types";
 import Link from "next/link";
 import React from "react";
 
-const Menu = () => {
+type MenuProps = {
+  links: LinkType[]
+}
+
+const Menu = ({ links }: MenuProps) => {
   return (
-    <nav className="flex flex-col">
-      <ul className="mb-4">
-        <li className="text-2xl pb-2">
-          <Link href="/">Inicio</Link>
-        </li>
-        <li className="text-2xl pb-2">Explorar</li>
-        <li className="text-2xl pb-2">Perfil</li>
+    <nav className="flex flex-col w-full">
+      <ul className="mb-4 w-full">
+        {
+          links && links.map((link) =>
+            <li className="p-2 text-2xl w-full hover:bg-blue-400 hover:text-white">
+              <Link href={link.href} className="p-2 w-full flex" >{link.title}</Link>
+            </li>
+          )
+        }
       </ul>
       <button className="button-primary">Postear</button>
     </nav>
