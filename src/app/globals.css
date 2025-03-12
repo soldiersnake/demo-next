@@ -17,3 +17,14 @@ body {
   background-color: blue;
   padding: 6 2 6 2;
 }
+
+.link-primary {
+  border-radius: 7px;
+  font: 400;
+  color: rgb(0, 170, 255);
+  cursor: pointer;
+}
+
+.link-primary:hover {
+  color: blue;
+}

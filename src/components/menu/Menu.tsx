@@ -11,9 +11,9 @@ const Menu = ({ links }: MenuProps) => {
     <nav className="flex flex-col w-full">
       <ul className="mb-4 w-full">
         {
-          links && links.map((link) =>
+          links && links.map((link, index) =>
             <li className="p-2 text-2xl w-full hover:bg-blue-400 hover:text-white">
-              <Link href={link.href} className="p-2 w-full flex" >{link.title}</Link>
+              <Link key={index} href={link.href} className="p-2 w-full flex"  >{link.title}</Link>
             </li>
           )
         }
