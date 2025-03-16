@@ -1,4 +1,5 @@
 import { MessageType } from "@/types/message.types";
+import Image from "next/image";
 import Link from "next/link";
 
 type MessageProps = {
@@ -23,6 +24,17 @@ const Messages = ({ message }: MessageProps) => {
             </div>
           </div>
           <p>{message.message}</p>
+          <div>
+            <Image
+              className="rounded-full"
+              src={
+                "https://m.media-amazon.com/images/I/71om09rH+HL._AC_UL480_FMwebp_QL65_.jpg"
+              }
+              alt="Picture of the author"
+              width={130}
+              height={130}
+            />
+          </div>
         </div>
       </div>
     </>

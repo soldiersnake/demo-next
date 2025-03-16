@@ -1,5 +1,7 @@
 import UserTabs from "@/components/users/UserTabs";
+import Image from "next/image";
 import Link from "next/link";
+import profilePic from "../../../../../public/lionel_messijpg.webp";
 
 const Userpage = ({ params }: { params: { username: string } }) => {
   const user = {
@@ -33,8 +35,16 @@ const Userpage = ({ params }: { params: { username: string } }) => {
   return (
     <main className="flex flex-col bg-gray-100 p-8">
       <section className="flex flex-col mb-8">
-        <div className="rounded-full p-6 bg-gray-300 w-20 text-center mb-4">
-          <span className="font-semibold text-lg">AS</span>
+        <div className="rounded-full text-center mb-4 block relative w-20 h-20">
+          <Image
+            className="rounded-full"
+            src={profilePic}
+            alt="Picture of the author"
+            fill
+            priority
+            // blurDataURL="data:..." automatically provided
+            // placeholder="blur" // Optional blur-up while loading
+          />
         </div>
         <h2 className="font-semibold text-lg mb-1">{user.name}</h2>
         <div className="text-md mb-4 text-gray-600 cursor-pointer">
@@ -53,10 +63,7 @@ const Userpage = ({ params }: { params: { username: string } }) => {
         </div>
       </section>
 
-      <UserTabs
-        messages={user.messages}
-        replies={[]}
-      />
+      <UserTabs messages={user.messages} replies={[]} />
     </main>
   );
 };
